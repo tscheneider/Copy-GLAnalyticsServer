@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:9
+    environment:
+      - POSTGRES_DB=game_analytics
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U game_analytics"]
+      interval: 30s
+      timeout: 30s
+      retries: 3

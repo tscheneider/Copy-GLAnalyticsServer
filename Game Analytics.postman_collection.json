@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "50651bae-24e4-4be8-89a7-96c645550300",
+		"name": "Game Analytics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "topics",
+			"item": [
+				{
+					"name": "localhost:3000/topics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/topics",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/topics/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "76aa622a-eaee-4cd3-91a0-ff04d20fc17c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/topics/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/topics/sistema-cardiovascular/tree",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/topics/sistema-cardiovascular/tree",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"sistema-cardiovascular",
+								"tree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/topics/slug/cabeca-e-pescoco",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/topics/slug/cabeca-e-pescoco",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"slug",
+								"cabeca-e-pescoco"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "sign",
+			"item": [
+				{
+					"name": "localhost:3000/sign/in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f9d9c6f4-0e79-46c4-95a6-9744ba007473",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"tony.fleming@example.com\",\n    \"password\": \"qwe123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sign/in",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sign",
+								"in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/sign/up",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "218ce542-4576-45de-8cd4-f3bcf5486dee",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"mateus.martinegle@gmail.com\",\n    \"password\":\"qwe123\",\n    \"underGradProgram\":\"TIC\",\n    \"institution\":\"UFSC - ARA\",\n    \"name\":\"Mateus Paegle\",\n    \"genre\": \"male\",\n    \"age\": \"3544\",\n    \"city\": \"Criciúma\",\n    \"country\": \"Brasil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sign/up",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sign",
+								"up"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "sessions",
+			"item": [
+				{
+					"name": "study",
+					"item": [
+						{
+							"name": "localhost:3000/sessions/study",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/sessions/study",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"sessions",
+										"study"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:3000/sessions/study/finish",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/sessions/study/finish",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"sessions",
+										"study",
+										"finish"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "topic",
+					"item": [
+						{
+							"name": "localhost:3000/sessions/topic",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"topicId\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/sessions/topic",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"sessions",
+										"topic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:3000/sessions/topic/4/finish",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/sessions/topic/5/finish",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"sessions",
+										"topic",
+										"5",
+										"finish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:3000/sessions/topic/finish",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/sessions/topic/finish",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"sessions",
+										"topic",
+										"finish"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "me",
+			"item": [
+				{
+					"name": "localhost:3000/me/profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/me/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"me",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/me/class-rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/me/class-rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"me",
+								"class-rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "class-rooms",
+			"item": [
+				{
+					"name": "localhost:3000/class-rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sala de treinamento\",\n    \"accessCode\": \"tic2020-1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/class-rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"class-rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/class-rooms/access",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessCode\": \"tic2020-1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/class-rooms/access",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"class-rooms",
+								"access"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "subjects",
+			"item": [
+				{
+					"name": "localhost:3000/subjects",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/subjects",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
