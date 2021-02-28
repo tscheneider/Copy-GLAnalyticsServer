@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "50651bae-24e4-4be8-89a7-96c645550300",
+		"_postman_id": "fa86945d-3e3e-495a-9aae-60c3c9bf2a5c",
 		"name": "Game Analytics",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -42,7 +42,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "76aa622a-eaee-4cd3-91a0-ff04d20fc17c",
 								"exec": [
 									""
 								],
@@ -137,8 +136,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "sign",
@@ -149,7 +147,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f9d9c6f4-0e79-46c4-95a6-9744ba007473",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
@@ -190,7 +187,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "218ce542-4576-45de-8cd4-f3bcf5486dee",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
@@ -235,8 +231,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "sessions",
@@ -246,6 +241,9 @@
 					"item": [
 						{
 							"name": "localhost:3000/sessions/study",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -257,11 +255,11 @@
 										}
 									]
 								},
-								"method": "POST",
+								"method": "GET",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n    \"status\": \"start\",\n    \"typePage\": \"3D\"\n}   ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -269,14 +267,15 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:3000/sessions/study",
+									"raw": "localhost:3000/times/session/1",
 									"host": [
 										"localhost"
 									],
 									"port": "3000",
 									"path": [
-										"sessions",
-										"study"
+										"times",
+										"session",
+										"1"
 									]
 								}
 							},
@@ -312,9 +311,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "topic",
@@ -418,12 +415,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "me",
@@ -486,8 +480,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "class-rooms",
@@ -567,8 +560,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "subjects",
@@ -601,9 +593,54 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
+		},
+		{
+			"name": "times",
+			"item": [
+				{
+					"name": "localhost:3000/times/session/:sessionId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"start\",\n    \"typePage\": \"3D\"\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/times/session/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"times",
+								"session",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

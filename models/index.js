@@ -11,8 +11,8 @@ const db = {};
 /**configuração de acesso ao banco de dados */
 const config = {
   database: process.env.DB_NAME || 'game_analytics',
-  username: process.env.DB_USERNAME || 'postgres',
-  password: process.env.DB_PASSWORD || '1234'
+  username: process.env.DB_USERNAME || 'root',
+  password: process.env.DB_PASSWORD || 'root'
 };
 
 /**configura username e senha dentro do bd postgress */

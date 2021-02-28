@@ -18,5 +18,35 @@ router.post('/:idTopic', async function (req, res) {
       errorHandler(err, res); //erro de desenvolvimento
     }
 });
+
+router.get('/:idTopic/session', async function (req, res) {
+  try {
+
+    res.send(await TimeSessionTopicController.byTopic(req.params.idTopic).getSession());
+
+  } catch (err) {
+    errorHandler(err, res); //erro de desenvolvimento
+  }
+});
+
+router.get('/profile/:profileId', async function (req, res) {
+  try {
+
+    res.send(await new TimeSessionTopicController().getAllTopicsByProfile(req.params.profileId));
+
+  } catch (err) {
+    errorHandler(err, res);
+  }
+});
+
+router.get('/session/:sessionId', async function (req, res) {
+  try {
+
+    res.send(await new TimeSessionTopicController().getAllTopicsBySession(req.params.sessionId));
+
+  } catch (err) {
+    errorHandler(err, res);
+  }
+});
   
 module.exports = router;
